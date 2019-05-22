@@ -1,0 +1,26 @@
+{{#if (or (or (eq type "text") (eq type "password")) (eq type "number"))}}
+  {{input type=type value=value placeholder=placeholder class='form-group' name=valuePath}}
+{{/if}}
+
+{{#if (eq type "textarea")}}
+  {{textarea value=value name=valuePath data-autoresize=data-autoresize cols=cols placeholder=placeholder rows=rows class='form-group'}}
+{{/if}}
+
+
+{{#if isValid}}
+
+{{/if}}
+
+<div class='input-error'>
+  {{#if showErrorMessage}}
+    <div class='error'>
+      {{v-get model valuePath 'message'}}
+    </div>
+  {{/if}}
+
+  {{#if showWarningMessage}}
+    <div class='warning'>
+      {{v-get model valuePath 'warningMessage'}}
+    </div>
+  {{/if}}
+</div>
