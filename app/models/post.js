@@ -1,4 +1,17 @@
 import DS from 'ember-data';
+import {buildValidations, validator} from "ember-cp-validations";
+
+const Validations = buildValidations({
+  title: [
+    validator('presence', true)
+  ],
+  body: [
+    validator('presence', true)
+  ],
+  tag_list: [
+    validator('presence', true)
+  ]
+});
 
 export default DS.Model.extend(Validations, {
   title: DS.attr('string'),
