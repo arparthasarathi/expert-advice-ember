@@ -1,0 +1,39 @@
+<div class="post-container">
+  {{post-title post=model.post}}
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-8">
+          <div class="post-description">
+            {{model.post.body}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8 offset-2">
+      {{answer-form post=model.post}}
+      {{#if (gt post.answers.length 0)}}
+        <div class="row">
+          <div class="col-8 offset-1">
+            <div class="row">
+              <div class="col-6">
+                <div class="answer">Answers:</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{#each model.post.answers as |answer|}}
+          {{answer-card answer=answer}}
+        {{/each}}
+      {{/if}}
+    </div>
+  </div>
+
+</div>
+
+
