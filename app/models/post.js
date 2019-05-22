@@ -19,8 +19,11 @@ export default DS.Model.extend(Validations, {
   body: DS.attr('string'),
   tags: DS.hasMany('tag'),
   user: DS.belongsTo('user'),
+  views_count: DS.attr('number'),
   question_id: DS.attr('number'),
   tag_list: DS.attr('string'),
   question: DS.belongsTo('post',  { inverse: 'answers' }),
   answers: DS.hasMany('post', { inverse: 'question' }),
+  created_at: DS.attr('datetime'),
+  updated_at: DS.attr('datetime')
 });
