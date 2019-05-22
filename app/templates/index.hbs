@@ -1,0 +1,28 @@
+<div class="post-container">
+  <div class="row">
+    <div class="col-md-10 offset-md-2">
+      <div class="row">
+        <div class="col-md-8">
+          <h3>Expert Advice</h3>
+          <h5>Get answers to difficult questions</h5>
+        </div>
+        <div class="col-md-4">
+          {{#link-to 'ask'}} Ask a question {{/link-to}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{#each model.posts as |question|}}
+    {{post-title post=question}}
+  {{/each}}
+
+  <div class="row">
+    <div class="col-8 offset-2">
+      {{load-more-button infinityModel=model.posts}}
+    </div>
+  </div>
+
+
+  {{outlet}}
+</div>
