@@ -1,5 +1,6 @@
 import DS from 'ember-data';
 import {buildValidations, validator} from "ember-cp-validations";
+import { computed } from '@ember/object';
 
 const Validations = buildValidations({
   title: [
@@ -25,5 +26,8 @@ export default DS.Model.extend(Validations, {
   question: DS.belongsTo('post',  { inverse: 'answers' }),
   answers: DS.hasMany('post', { inverse: 'question' }),
   created_at: DS.attr('datetime'),
-  updated_at: DS.attr('datetime')
+  updated_at: DS.attr('datetime'),
+  isEdited: computed('created_at', 'updated_at', function() {
+    return (this.get('updated_at') > this.get('created_at'));
+  })
 });
