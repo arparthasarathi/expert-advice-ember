@@ -1,20 +1,41 @@
 <div class="post-container">
   <div class="row">
-    <div class="col-md-10 offset-md-2">
+    <div class="col-10 offset-2">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-8">
           <h3>Expert Advice</h3>
           <h5>Get answers to difficult questions</h5>
         </div>
-        <div class="col-md-4">
-          {{#link-to 'ask'}} Ask a question {{/link-to}}
+        <div class="col-4">
+          {{#link-to 'ask' class='btn btn-primary ask-btn'}} Ask a question {{/link-to}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-10 offset-2">
+      <div class="row">
+        <div class="col-8">
+          {{input type="text" enter=(action "searchPosts") id="search-bar" value=term placeholder="Type and press enter to search with tags" class="search-bar"}}
         </div>
       </div>
     </div>
   </div>
 
-  {{#each model.posts as |question|}}
-    {{post/title post=question}}
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="row">
+        <div class="col-1">
+          <p>Views</p>
+        </div>
+        <div class="col-8">
+          <p>Question</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{#each sortedQuestions as |question|}}
+    {{post/post-header post=question}}
   {{/each}}
 
   <div class="row">
