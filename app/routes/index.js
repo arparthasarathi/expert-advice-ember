@@ -1,13 +1,15 @@
 import Route from '@ember/routing/route';
 import RSVP from 'rsvp';
+import { inject as service } from '@ember/service';
 
 export default Route.extend({
-  model: function(params){
+  infinity: service(),
+  model: function(){
     return RSVP.hash({
-      posts: this.get('store').findAll('post');
+      posts: this.infinity.model('post', { totalPagesParam: 'meta.total', countParam: 'meta.totalRecords' })
     });
   },
-  serialize: function(model, params) {
+  serialize: function(model) {
     return { post_slug: model.get('slug') };
   }
 });
