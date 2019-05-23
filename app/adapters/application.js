@@ -24,21 +24,22 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
     }
   },
   handleResponse(status, headers, payload, requestData) {
-    const total = headers["total"] || headers["Total"];
+    const totalRecords = headers["total"] || headers["Total"];
     const perPage = headers["per-page"] || headers["Per-Page"];
     let pages = null;
 
-    if (isPresent(total) && isPresent(perPage)) {
-      pages = Math.ceil(total / perPage);
+    if (isPresent(totalRecords) && isPresent(perPage)) {
+      pages = Math.ceil(totalRecords / perPage);
     }
 
     const meta = {
-      total: total,
-      perPage: perPage,
-      pages: pages
+      total: pages,
+      countParam: totalRecords
     };
 
-    payload.meta = meta;
+    if (payload) {
+      payload.meta = meta;
+    }
 
     return this._super(status, headers, payload, requestData);
   }
