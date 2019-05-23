@@ -5,7 +5,6 @@ export default Route.extend({
   session: service(),
   setupController: function(controller, model) {
     this._super(controller, model);
-    $(window).scrollTop(0);
     controller.set('previousPath', this._router.currentPath);
   },
   actions: {

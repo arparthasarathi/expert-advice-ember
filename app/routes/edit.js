@@ -5,7 +5,6 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Route.extend(AuthenticatedRouteMixin, {
   setupController: function(controller, model) {
     this._super(controller, model);
-    $(window).scrollTop(0);
     controller.set('previousPath', this._router.currentPath);
   },
   model: function(params) {
@@ -13,7 +12,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
       post: this.store.findRecord('post', params.post_slug )
     });
   },
-  serialize: function(model, params) {
+  serialize: function(model) {
     return { post_slug: model.get('slug')};
   }
 });
