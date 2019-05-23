@@ -1,0 +1,33 @@
+.answer-form {
+  margin-top: 25px;
+  margin-left: 5px;
+  letter-spacing: 1px;
+  line-height: 25px;
+}
+
+.validated-input {
+  width: 100%;
+}
+
+.input-error {
+  color: red;
+}
+
+input {
+  width: 100%;
+  border: 1px solid #808495;
+  height: 40px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+textarea {
+  width: 100%;
+  border: 1px solid #808495;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.form-group.has-error input {
+  border-color: #dc3545;
+}
