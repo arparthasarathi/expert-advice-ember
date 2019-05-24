@@ -1,5 +1,19 @@
 <div class="post-container">
-  {{post-title post=model.post}}
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="row">
+        <div class="col-1">
+          <p>Views</p>
+        </div>
+        <div class="col-8">
+          <p>Question</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="remove-border">
+    {{post/post-header post=model.post}}
+  </div>
   <div class="row">
     <div class="col-8 offset-2">
       <div class="row">
@@ -16,21 +30,19 @@
   </div>
   <div class="row">
     <div class="col-8 offset-2">
-      {{answer/form post=model.post}}
-      {{#if (gt post.answers.length 0)}}
+      {{answer/answer-form post=model.post}}
         <div class="row">
-          <div class="col-8 offset-1">
+          <div class="answer col-8 offset-1">
             <div class="row">
               <div class="col-6">
-                <div class="answer">Answers:</div>
+                <div class="">Answers:</div>
               </div>
             </div>
           </div>
         </div>
-        {{#each model.post.answers as |answer|}}
-          {{answer/card answer=answer}}
+        {{#each sortedAnswers as |answer|}}
+          {{answer/answer-content answer=answer }}
         {{/each}}
-      {{/if}}
     </div>
   </div>
 
