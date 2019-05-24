@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="answer col-10 offset-1">
+    <div class="row">
+      <div class="col-8">
+        <div class="">
+          {{answer.body}}
+        </div>
+      </div>
+      <div class="col-1 offset-2">
+        <div class="post-icons">
+          {{#if currentSession.isAuthenticated}}
+            {{#if (eq answer.user.email currentSession.user.email)}}
+              <a href="" {{action 'deleteAnswer' answer}}>{{fa-icon 'trash'}}</a>
+            {{/if}}
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="answer-meta">
+        answered {{moment-from-now answer.created_at}} by {{answer.user.email}}
+      </div>
+    </div>
+  </div>
+</div>
