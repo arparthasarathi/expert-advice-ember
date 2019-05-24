@@ -1,10 +1,56 @@
 @import "ember-bootstrap/bootstrap";
 @import "main";
+@import "answer/_card";
+@import "_form";
+@import "post/_title";
 
 body, .h-screen {
   height: 100vh;
+  font-family: 'Lato', sans-serif;
 }
 
-.form-group.has-error input {
-  border-color: #dc3545;
+.post-container {
+  margin-top: 100px;
+}
+
+
+.post-description {
+  margin-top: 10px;
+  line-height: 25px;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.infinity-loader {
+  color: #00ba77;
+  font-size: 20px;
+  margin: 10px;
+  font-weight: 500;
+}
+
+a{
+  .fa.fa-edit,
+  .fa.fa-trash {
+    color: #4A4A4A;
+    font-size: 20px;
+  }
+}
+
+button.load-more{
+  width:50%;
+  height: 35px;
+  margin-bottom: 20px;
+  border-radius: 1px;
+  background-color: #007bff;
+  align-items: center;
+  color: #ffffff;
+}
+
+.ask-btn {
+  margin-top: 15px;
+}
+
+.search-bar {
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
