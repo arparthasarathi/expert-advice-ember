@@ -1,8 +1,8 @@
 import Component from '@ember/component';
-import { inject } from '@ember/service';
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
-  currentSession: inject(),
+  currentSession: service(),
   actions: {
     deleteAnswer: function (answer) {
       if(confirm("Are you sure want to delete the answer?")) {

@@ -1,5 +1,5 @@
 import Component from "@ember/component";
-import { inject } from "@ember/service";
+import { inject as service } from "@ember/service";
 import { computed } from "@ember/object";
 import { validator, buildValidations } from 'ember-cp-validations';
 
@@ -8,8 +8,8 @@ const Validations = buildValidations({
 });
 
 export default Component.extend(Validations, {
-  currentSession: inject(),
-  router: inject(),
+  currentSession: service(),
+  router: service(),
   tagList: computed('model.post.tags', function(){
     let tagsString = "";
     let post = this.get('post');

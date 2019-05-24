@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { inject } from '@ember/service';
+import { inject as service } from '@ember/service';
 import { validator, buildValidations } from 'ember-cp-validations';
 
 const Validations = buildValidations({
@@ -7,8 +7,8 @@ const Validations = buildValidations({
 });
 
 export default Component.extend(Validations, {
-  currentSession: inject(),
-  store: inject(),
+  currentSession: service(),
+  store: service(),
   answer: null,
   actions: {
     postAnswer: function(answer, question){
