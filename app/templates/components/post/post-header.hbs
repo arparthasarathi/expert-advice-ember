@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-8 offset-2">
+    <div class="post-card row">
+      <div class="col-1">
+        <div class="views">
+          {{post.views_count}}
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="post-title">
+          {{#link-to "show" post.slug}}
+            {{post.title}}
+          {{/link-to}}
+        </div>
+        <div class="row">
+          {{#each post.tags as |tag|}}
+            <div class="post-tag">
+              {{tag.name}}
+            </div>
+          {{/each}}
+        </div>
+        {{#if post.isEdited}}
+          <div class="row">
+            <div class="post-meta">last updated {{moment-from-now post.updated_at}}</div>
+          </div>
+        {{/if}}
+        <div class="row">
+          <div class="post-meta">created {{moment-from-now post.created_at}} by {{post.user.email}}</div>
+        </div>
+      </div>
+      <div class="col-1 offset-2">
+        <div class="row">
+          <div class="post-icons">
+            {{#if currentSession.isAuthenticated}}
+              {{#if (eq post.user.email currentSession.user.email)}}
+                {{#link-to 'edit' post.slug}}{{fa-icon 'edit'}}{{/link-to}}
+                <a href="" {{action 'deletePost' post}}>{{fa-icon 'trash'}}</a>
+              {{/if}}
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
