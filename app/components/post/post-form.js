@@ -48,13 +48,11 @@ export default Component.extend(Validations, {
     cancelPost: function(post){
       post.rollbackAttributes();
       let previousPath = this.get('previousPath');
-      if(previousPath === "index") {
-        this.get('router').transitionTo(previousPath);
-      }
-      else if(previousPath === "show"){
-        let slug = post.get('slug');
+      let slug = post.get('slug');
+      if((previousPath === "show") && slug){
         this.get('router').transitionTo("show", slug);
       }
+      this.get('router').transitionTo('index');
     }
   }
 });
