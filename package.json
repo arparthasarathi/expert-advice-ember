@@ -1,5 +1,5 @@
 {
-  "name": "expert-advice-ember",
+  "name": "ember-starter-project",
   "version": "0.0.0",
   "private": true,
   "description": "Expert advice - Get your tough questions answered!",
@@ -15,7 +15,8 @@
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "ember serve",
-    "test": "ember test"
+    "test": "ember test",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "devDependencies": {
     "@ember/jquery": "^0.5.2",
@@ -54,6 +55,9 @@
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.7.1",
     "sass": "^1.14.1"
+  },
+  "dependencies": {
+    "bower": "1.8.2"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
