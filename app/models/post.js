@@ -27,7 +27,8 @@ export default DS.Model.extend(Validations, {
   answers: DS.hasMany('post', { inverse: 'question' }),
   created_at: DS.attr('datetime'),
   updated_at: DS.attr('datetime'),
-  isEdited: computed('created_at', 'updated_at', function() {
-    return (this.get('updated_at') > this.get('created_at'));
+  edited_at: DS.attr('datetime'),
+  isEdited: computed('created_at', 'edited_at', function() {
+    return (this.get('edited_at') > this.get('created_at'));
   })
 });
