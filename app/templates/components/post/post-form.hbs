@@ -20,7 +20,7 @@
             {{validated-input type="text" model=this valuePath="tagList" placeholder="Enter the tags" value=tagList id="post-tags"}}
             {{log this.validations}}
           </div>
-          <div class="row">
+          <div class="row input-error">
             {{#if errorMessage}}
               {{errorMessage}}
             {{/if}}
