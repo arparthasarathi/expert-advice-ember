@@ -27,17 +27,24 @@ export default Component.extend(Validations, {
               clearDurations: 5000
             });
           }, (reason) => {
+            let errors = reason.errors;
+            let errorMessage = "";
+            errors.forEach(function (error, index) {
+              errorMessage = errorMessage.concat(error.title);
+              if(index < (reason.errors.length - 1))
+                errorMessage = errorMessage.concat(",")
+            });
+            this.set('errorMessage', errorMessage);
             this.get('notifications').error('Please try again.', {
               autoClear: true,
               clearDurations: 5000
             });
-            this.set("errorMessage", reason.errors)
           });
         }
       }
       else {
         if(confirm("You need to be signed in to post an answer. Do you want to sign in?")) {
-          this.transitionToRoute('login');
+          this.get('router').transitionTo('login');
         }
       }
     }
