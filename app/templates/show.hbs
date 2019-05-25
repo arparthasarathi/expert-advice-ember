@@ -8,6 +8,9 @@
         <div class="col-8">
           <p>Question</p>
         </div>
+        <div class="col-2 offset-1">
+          {{#link-to 'index' class='btn btn-primary'}} Back to list {{/link-to}}
+        </div>
       </div>
     </div>
   </div>
@@ -28,9 +31,10 @@
 
     </div>
   </div>
-  <div class="row">
+  <div class="answer-container row">
     <div class="col-8 offset-2">
       {{answer/answer-form post=model.post}}
+      {{#if (gt sortedAnswers.length 0)}}
         <div class="row">
           <div class="answer col-8 offset-1">
             <div class="row">
@@ -43,6 +47,7 @@
         {{#each sortedAnswers as |answer|}}
           {{answer/answer-content answer=answer }}
         {{/each}}
+      {{/if}}
     </div>
   </div>
 
