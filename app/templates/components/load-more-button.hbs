@@ -1,5 +1,8 @@
 {{#if infinityModel.reachedInfinity}}
-  <p>You have reached the end! Did you not find what you are looking for? {{#link-to 'ask'}} Ask an expert! {{/link-to}}</p>
+  <div class="col-6">
+    <p class="text-center">You have reached the end! Did you not find what you are looking for? {{#link-to 'ask'}} Ask an expert! {{/link-to}}</p>
+  </div>
+
 {{else}}
   <button {{action "click"}} class="load-more">{{loadText}}</button>
 {{/if}}
