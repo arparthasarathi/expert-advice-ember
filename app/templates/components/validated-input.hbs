@@ -1,8 +1,8 @@
-{{#if (or (or (eq type "text") (eq type "password")) (eq type "number"))}}
+{{#if (contains type singleLineInputTypes)}}
   {{input type=type value=value placeholder=placeholder class='form-group' name=valuePath required=required}}
 {{/if}}
 
-{{#if (eq type "textarea")}}
+{{#if (contains type multiLineInputTypes)}}
   {{textarea value=value name=valuePath data-autoresize=data-autoresize cols=cols placeholder=placeholder rows=rows class='form-group'
              required=required}}
 {{/if}}
