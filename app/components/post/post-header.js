@@ -5,7 +5,7 @@ export default Component.extend({
   currentSession: service(),
   router: service(),
   actions: {
-    deletePost: function (post) {
+    deletePost(post) {
       if(confirm("Are you sure want to delete the post?")) {
         post.destroyRecord().then(() => {
           this.get('notifications').success('Successfully deleted.', {

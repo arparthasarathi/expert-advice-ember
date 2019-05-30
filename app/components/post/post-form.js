@@ -24,7 +24,7 @@ export default Component.extend(Validations, {
     return tagsString;
   }),
   actions: {
-    postQuestion: function (post) {
+    postQuestion(post) {
       post.set('tag_list', this.get('tagList'));
       post.validate().then(({ validations }) => {
         this.set('didValidate', true);
@@ -53,7 +53,7 @@ export default Component.extend(Validations, {
         }
       });
     },
-    cancelPost: function(post){
+    cancelPost(post){
       post.rollbackAttributes();
       let previousPath = this.get('previousPath');
       let slug = post.get('slug');

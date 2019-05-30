@@ -11,7 +11,7 @@ export default Component.extend(Validations, {
   store: service(),
   answer: null,
   actions: {
-    postAnswer: function(answer, question){
+    postAnswer(answer, question){
       if(this.get('currentSession.isAuthenticated')) {
         this.set('didValidate', true);
         if(this.get('validations.attrs.answer.isValid')){
