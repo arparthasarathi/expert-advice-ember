@@ -3,7 +3,7 @@ import { inject as service } from "@ember/service";
 
 export default Route.extend({
   session: service(),
-  setupController: function(controller, model) {
+  setupController(controller, model) {
     this._super(controller, model);
     controller.set('previousPath', this._router.currentPath);
   },

@@ -7,7 +7,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
     this._super(controller, model);
     controller.set('previousPath', this._router.currentPath);
   },
-  model: function(){
+  model(){
     return RSVP.hash({
       post: this.store.createRecord('post')
     });

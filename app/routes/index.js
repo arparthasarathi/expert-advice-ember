@@ -4,12 +4,12 @@ import { inject as service } from '@ember/service';
 
 export default Route.extend({
   infinity: service(),
-  model: function(){
+  model(){
     return RSVP.hash({
       posts: this.infinity.model('post', { totalPagesParam: 'meta.total', countParam: 'meta.totalRecords' })
     });
   },
-  serialize: function(model) {
+  serialize(model) {
     return { post_slug: model.get('slug') };
   }
 });
