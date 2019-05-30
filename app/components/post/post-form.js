@@ -11,17 +11,7 @@ export default Component.extend(Validations, {
   currentSession: service(),
   router: service(),
   tagList: computed('model.post.tags', function(){
-    let tagsString = "";
-    let post = this.get('post');
-    let tags = post.get('tags');
-    tags.forEach(function(tag, index){
-      let name = tag.get('name');
-      tagsString = tagsString.concat(name);
-      if(index < (tags.length-1)){
-        tagsString = tagsString.concat(",");
-      }
-    });
-    return tagsString;
+    return this.post.tags.map(tag => tag.name).join(",");
   }),
   actions: {
     postQuestion(post) {
