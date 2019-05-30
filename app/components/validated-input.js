@@ -7,7 +7,7 @@ import {
   alias
 } from '@ember/object/computed';
 import Component from '@ember/component';
-import { defineProperty } from '@ember/object';
+import { defineProperty, computed } from '@ember/object';
 
 export default Component.extend({
   classNames: ['validated-input'],
@@ -39,6 +39,15 @@ export default Component.extend({
     let valuePath = this.get('valuePath');
     defineProperty(this, 'validation', readOnly(`model.validations.attrs.${valuePath}`));
     defineProperty(this, 'value', alias(`model.${valuePath}`));
+    defineProperty(this, 'singleLineInputTypes', computed(function() {
+      return ["text", "number", "password"];
+    }));
+    defineProperty(this, 'multiLineInputTypes', computed(function(){
+      return ['textarea'];
+    }));
+    defineProperty(this, 'selectableInputTypes', computed(function(){
+      return ['checkbox', 'radio'];
+    }));
   },
   focusOut() {
     this._super(...arguments);
