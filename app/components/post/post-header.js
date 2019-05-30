@@ -3,6 +3,7 @@ import { inject as service } from "@ember/service";
 
 export default Component.extend({
   currentSession: service(),
+  errorHandler: service(),
   router: service(),
   actions: {
     deletePost(post) {
@@ -14,18 +15,7 @@ export default Component.extend({
           });
           this.get('router').transitionTo('index');
         }, (reason) => {
-          let errors = reason.errors;
-          let errorMessage = "";
-          errors.forEach(function (error, index) {
-            errorMessage = errorMessage.concat(error.title);
-            if(index < (reason.errors.length - 1))
-              errorMessage = errorMessage.concat(",")
-          });
-          this.set('errorMessage', errorMessage);
-          this.get('notifications').error('Please try again.', {
-            autoClear: true,
-            clearDurations: 5000
-          });
+          this.get('errorHandler').displayErrors(reason.errors);
         });
       }
     }

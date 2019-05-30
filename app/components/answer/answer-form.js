@@ -8,6 +8,7 @@ const Validations = buildValidations({
 
 export default Component.extend(Validations, {
   currentSession: service(),
+  errorHandler: service(),
   store: service(),
   answer: null,
   actions: {
@@ -27,18 +28,7 @@ export default Component.extend(Validations, {
               clearDurations: 5000
             });
           }, (reason) => {
-            let errors = reason.errors;
-            let errorMessage = "";
-            errors.forEach(function (error, index) {
-              errorMessage = errorMessage.concat(error.title);
-              if(index < (reason.errors.length - 1))
-                errorMessage = errorMessage.concat(",")
-            });
-            this.set('errorMessage', errorMessage);
-            this.get('notifications').error('Please try again.', {
-              autoClear: true,
-              clearDurations: 5000
-            });
+            this.get('errorHandler').displayErrors(reason.errors);
           });
         }
       }

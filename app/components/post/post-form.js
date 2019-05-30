@@ -9,6 +9,7 @@ const Validations = buildValidations({
 
 export default Component.extend(Validations, {
   currentSession: service(),
+  errorHandler: service(),
   router: service(),
   tagList: computed('model.post.tags', function(){
     return this.post.tags.map(tag => tag.name).join(",");
@@ -27,18 +28,7 @@ export default Component.extend(Validations, {
             });
             this.get('router').transitionTo('show', post.get('slug'));
           }, (reason) => {
-              let errors = reason.errors;
-              let errorMessage = "";
-              errors.forEach(function (error, index) {
-                errorMessage = errorMessage.concat(error.title);
-                if(index < (reason.errors.length - 1))
-                  errorMessage = errorMessage.concat(",")
-              });
-              this.set('errorMessage', errorMessage);
-              this.get('notifications').error('Please try again.', {
-                autoClear: true,
-                clearDurations: 5000
-              });
+              this.get('errorHandler').displayErrors(reason.errors);
           });
         }
       });
