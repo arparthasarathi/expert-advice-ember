@@ -3,10 +3,11 @@
   <div class="col-8">
     <form>
       <div class="row">
-        <label for="answer">Post your answer</label>
+        <label for="answer" class="required">Post your answer</label>
       </div>
       <div class="row">
-        {{validated-input type="textarea" model=this valuePath="answer" cols="30" rows="5" placeholder="Enter your answer" value=answer id="answer"}}
+        {{validated-input type="textarea" model=this valuePath="answer" cols="30" rows="5" placeholder="Enter your answer" value=answer id="answer"
+                          didValidate=didValidate required=true}}
       </div>
       <div class="row input-error">
         {{#if errorMessage}}

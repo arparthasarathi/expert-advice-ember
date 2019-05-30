@@ -12,8 +12,8 @@ export default Component.extend(Validations, {
   answer: null,
   actions: {
     postAnswer: function(answer, question){
-      this.set('didValidate', true);
       if(this.get('currentSession.isAuthenticated')) {
+        this.set('didValidate', true);
         if(this.get('validations.attrs.answer.isValid')){
           this.set('didValidate', false);
           let newAnswer = this.get('store').createRecord('post');

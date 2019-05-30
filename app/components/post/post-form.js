@@ -29,6 +29,7 @@ export default Component.extend(Validations, {
       post.validate().then(({ validations }) => {
         this.set('didValidate', true);
         if(validations.get('isValid')){
+          this.set('didValidate', false);
           post.save().then((post) => {
             this.get('notifications').success('Successfully posted.', {
               autoClear: true,

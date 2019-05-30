@@ -3,10 +3,11 @@
       <div class="col-8">
         <form>
           <div class="row" style="margin-top: 20px">
-            <label for="post-title">Post title</label>
+            <label for="post-title" class="required">Post title</label>
           </div>
           <div class="row">
-            {{validated-input model=post valuePath="title" type="text" placeholder="Enter the post title" value=post.title id="post-title"}}
+            {{validated-input model=post valuePath="title" type="text" placeholder="Enter the post title" value=post.title id="post-title"
+                              didValidate=didValidate required=true}}
           </div>
           <div class="row">
             <label for="post-description">Post description</label>
@@ -14,10 +15,11 @@
                        value=post.body class="form-group" id="post-description"}}
           </div>
           <div class="row">
-            <label for="post-tags">Post tags (enter tags separated by comma)</label>
+            <label for="post-tags" class="required">Post tags (enter tags separated by comma)</label>
           </div>
           <div class="row">
-            {{validated-input type="text" model=this valuePath="tagList" placeholder="Enter the tags" value=tagList id="post-tags"}}
+            {{validated-input type="text" model=this valuePath="tagList" placeholder="Enter the tags" value=tagList id="post-tags"
+                              didValidate=didValidate required=true}}
             {{log this.validations}}
           </div>
           <div class="row input-error">
