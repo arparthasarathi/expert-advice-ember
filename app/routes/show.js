@@ -4,7 +4,7 @@ import RSVP from 'rsvp';
 export default Route.extend({
   model(params) {
     return RSVP.hash({
-      post: this.get('store').findRecord('post', params.post_slug )
+      post: this.store.findRecord('post', params.post_slug )
     });
   },
   serialize(model) {
