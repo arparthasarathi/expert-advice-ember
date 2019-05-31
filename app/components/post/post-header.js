@@ -9,13 +9,13 @@ export default Component.extend({
     deletePost(post) {
       if(confirm("Are you sure want to delete the post?")) {
         post.destroyRecord().then(() => {
-          this.get('notifications').success('Successfully deleted.', {
+          this.notifications.success('Successfully deleted.', {
             autoClear: true,
             clearDurations: 5000
           });
-          this.get('router').transitionTo('index');
+          this.router.transitionTo('index');
         }, (reason) => {
-          this.get('errorHandler').displayErrors(reason.errors);
+          this.errorHandler.displayErrors(reason.errors);
         });
       }
     }

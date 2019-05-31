@@ -22,13 +22,13 @@ export default Component.extend(Validations, {
         if(validations.get('isValid')){
           this.set('didValidate', false);
           post.save().then((post) => {
-            this.get('notifications').success('Successfully posted.', {
+            this.notifications.success('Successfully posted.', {
               autoClear: true,
               clearDurations: 5000
             });
-            this.get('router').transitionTo('show', post.get('slug'));
+            this.router.transitionTo('show', post.get('slug'));
           }, (reason) => {
-              this.get('errorHandler').displayErrors(reason.errors);
+              this.errorHandler.displayErrors(reason.errors);
           });
         }
       });
@@ -38,9 +38,9 @@ export default Component.extend(Validations, {
       let previousPath = this.get('previousPath');
       let slug = post.get('slug');
       if((previousPath === "show") && slug){
-        this.get('router').transitionTo("show", slug);
+        this.router.transitionTo("show", slug);
       }
-      this.get('router').transitionTo('index');
+      this.router.transitionTo('index');
     }
   }
 });

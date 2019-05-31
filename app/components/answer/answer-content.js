@@ -8,12 +8,12 @@ export default Component.extend({
     deleteAnswer(answer) {
       if(confirm("Are you sure want to delete the answer?")) {
         answer.destroyRecord().then(() => {
-          this.get('notifications').success('Successfully deleted.', {
+          this.notifications.success('Successfully deleted.', {
             autoClear: true,
             clearDurations: 5000
           });
         }, (reason) => {
-          this.get('errorHandler').displayErrors(reason.errors);
+          this.errorHandler.displayErrors(reason.errors);
         });
       }
     }

@@ -23,18 +23,18 @@ export default Component.extend(Validations, {
           newAnswer.set('question_id', question.get('id'));
           newAnswer.save().then(() => {
             this.set('answer', null);
-            this.get('notifications').success('Answer posted successfully.', {
+            this.notifications.success('Answer posted successfully.', {
               autoClear: true,
               clearDurations: 5000
             });
           }, (reason) => {
-            this.get('errorHandler').displayErrors(reason.errors);
+            this.errorHandler.displayErrors(reason.errors);
           });
         }
       }
       else {
         if(confirm("You need to be signed in to post an answer. Do you want to sign in?")) {
-          this.get('router').transitionTo('login');
+          this.router.transitionTo('login');
         }
       }
     }
