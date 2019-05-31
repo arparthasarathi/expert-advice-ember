@@ -11,7 +11,12 @@ export default Route.extend({
     login(email, password) {
       this.get("session")
         .authenticate("authenticator:oauth2", email, password)
-        .then(() => this.transitionTo(this.get('previousPath')))
+        .then(() => {
+          this.notifications.success('Login successful.', {
+            autoClear: true,
+            clearDurations: 5000
+          });
+        })
         .catch(() => {
           this.controller.set("errorMessage", "Invalid login.");
         });
