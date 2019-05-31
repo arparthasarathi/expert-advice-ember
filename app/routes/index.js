@@ -6,7 +6,7 @@ export default Route.extend({
   infinity: service(),
   model(){
     return RSVP.hash({
-      posts: this.infinity.model('post', { totalPagesParam: 'meta.total', countParam: 'meta.totalRecords' })
+      posts: this.infinity.model('post', { totalPagesParam: 'meta.totalPagesParam', countParam: 'meta.countParam' })
     });
   },
   serialize(model) {

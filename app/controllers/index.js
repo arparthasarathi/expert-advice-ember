@@ -15,8 +15,8 @@ export default Controller.extend({
     async searchPosts(query) {
       let posts = await this.infinity.model('post', {
         query: query,
-        totalPagesParam: 'meta.total',
-        countParam: 'meta.totalRecords'
+        totalPagesParam: 'meta.totalPagesParam',
+        countParam: 'meta.countParam'
       });
       this.set('model.posts', posts);
     }

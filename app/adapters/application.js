@@ -33,7 +33,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
     }
 
     const meta = {
-      total: pages,
+      totalPagesParam: pages,
       countParam: totalRecords
     };
 
