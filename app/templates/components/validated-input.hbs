@@ -1,3 +1,10 @@
+{{!--
+
+Adopted this template code from ember-cp-validation demo application
+https://github.com/offirgolan/ember-cp-validations/blob/master/tests/dummy/app/templates/components/validated-input.hbs
+
+--}}
+
 {{#if (contains type singleLineInputTypes)}}
   {{input type=type value=value placeholder=placeholder class='form-group' name=valuePath required=required}}
 {{/if}}

@@ -1,3 +1,7 @@
+/**
+ * Adopted this script from ember-cp-validation demo app
+ * https://github.com/offirgolan/ember-cp-validations/blob/master/tests/dummy/app/components/validated-input.js
+ */
 import {
   not,
   notEmpty,
