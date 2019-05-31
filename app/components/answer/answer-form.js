@@ -9,6 +9,7 @@ const Validations = buildValidations({
 export default Component.extend(Validations, {
   currentSession: service(),
   errorHandler: service(),
+  router: service(),
   store: service(),
   answer: null,
   actions: {
