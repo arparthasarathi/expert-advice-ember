@@ -1,8 +1,7 @@
 import Route from "@ember/routing/route";
 import { inject } from "@ember/service";
 import ApplicationRouteMixin from "ember-simple-auth/mixins/application-route-mixin";
-import ProgressMixin from './../mixins/progress';
-
+import ProgressMixin from "./../mixins/progress";
 
 export default Route.extend(ProgressMixin, ApplicationRouteMixin, {
   routeAfterAuthentication: "dashboard",
