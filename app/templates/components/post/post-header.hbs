@@ -3,7 +3,7 @@
     <div class="post-card row">
       <div class="col-1">
         <div class="views">
-          {{post.views_count}}
+          {{post.viewsCount}}
         </div>
       </div>
       <div class="col-8">
@@ -21,11 +21,11 @@
         </div>
         {{#if post.isEdited}}
           <div class="row">
-            <div class="post-meta">last updated {{moment-from-now post.edited_at}}</div>
+            <div class="post-meta">last updated {{moment-from-now post.editedAt}}</div>
           </div>
         {{/if}}
         <div class="row">
-          <div class="post-meta">created {{moment-from-now post.created_at}} by <b>{{post.user.email}}</b></div>
+          <div class="post-meta">created {{moment-from-now post.createdAt}} by <b>{{post.user.email}}</b></div>
         </div>
       </div>
       <div class="col-1 offset-2">

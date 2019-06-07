@@ -6,10 +6,10 @@ import { sort } from "@ember/object/computed";
 
 export default Controller.extend({
   infinity: service(),
-  questions: filterBy("model.posts", "question_id", null),
+  questions: filterBy("model.posts", "questionId", null),
   sortedQuestions: sort("questions", "sortDefinition"),
   sortDefinition: computed(function() {
-    return ["created_at:desc"];
+    return ["createdAt:desc"];
   }),
   actions: {
     async searchPosts(query) {

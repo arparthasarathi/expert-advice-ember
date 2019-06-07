@@ -5,7 +5,7 @@ import { computed } from "@ember/object";
 const Validations = buildValidations({
   title: [validator("presence", true)],
   body: [validator("presence", true)],
-  tag_list: [validator("presence", true)]
+  tagList: [validator("presence", true)]
 });
 
 export default DS.Model.extend(Validations, {
@@ -14,15 +14,15 @@ export default DS.Model.extend(Validations, {
   body: DS.attr("string"),
   tags: DS.hasMany("tag"),
   user: DS.belongsTo("user"),
-  views_count: DS.attr("number"),
-  question_id: DS.attr("number"),
-  tag_list: DS.attr("string"),
+  viewsCount: DS.attr("number"),
+  questionId: DS.attr("number"),
+  tagList: DS.attr("string"),
   question: DS.belongsTo("post", { inverse: "answers" }),
   answers: DS.hasMany("post", { inverse: "question" }),
-  created_at: DS.attr("datetime"),
-  updated_at: DS.attr("datetime"),
-  edited_at: DS.attr("datetime"),
-  isEdited: computed("created_at", "edited_at", function() {
-    return this.get("edited_at") > this.get("created_at");
+  createdAt: DS.attr("datetime"),
+  updatedAt: DS.attr("datetime"),
+  editedAt: DS.attr("datetime"),
+  isEdited: computed("createdAt", "editedAt", function() {
+    return this.get("editedAt") > this.get("createdAt");
   })
 });

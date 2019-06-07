@@ -21,7 +21,7 @@ export default Component.extend(Validations, {
           let newAnswer = this.get("store").createRecord("post");
           newAnswer.set("body", answer);
           newAnswer.set("question", question);
-          newAnswer.set("question_id", question.get("id"));
+          newAnswer.set("questionId", question.get("id"));
           newAnswer.save().then(
             () => {
               this.set("answer", null);

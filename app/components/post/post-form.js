@@ -16,7 +16,7 @@ export default Component.extend(Validations, {
   }),
   actions: {
     postQuestion(post) {
-      post.set("tag_list", this.get("tagList"));
+      post.set("tagList", this.get("tagList"));
       post.validate().then(({ validations }) => {
         this.set("didValidate", true);
         if (validations.get("isValid")) {

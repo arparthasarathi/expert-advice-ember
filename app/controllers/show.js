@@ -5,6 +5,6 @@ import { computed } from "@ember/object";
 export default Controller.extend({
   sortedAnswers: sort("model.post.answers", "sortDefinition"),
   sortDefinition: computed(function() {
-    return ["created_at:desc"];
+    return ["createdAt:desc"];
   })
 });
